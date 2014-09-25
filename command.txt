@@ -1,0 +1,16 @@
+#!/bin/bash
+# planets
+
+for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
+do
+  echo $planet  # Each planet on a separate line.
+  curl  http://en.wikipedia.org/wiki/$planet > $planet.html
+  if [ ! -s $planet.html ]
+  then
+  	echo file $planet.html is empty
+  	exit
+  else
+  	echo Got info for $planet
+  fi
+done
+
